@@ -1,4 +1,4 @@
-package com.caua.livraria.entities;
+package com.caua.livraria.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
