@@ -1,6 +1,6 @@
 package com.caua.livraria.entities;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
@@ -11,8 +11,10 @@ import java.io.Serializable;
 @EqualsAndHashCode(of = "id")
 
 @Entity
+@Table(name = "tb_livro")
 public class Livro implements Serializable {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // cria os ids em ordem (1, 2, 3...)
     private Long id;
     private String nome;
     //private Autor autor;
