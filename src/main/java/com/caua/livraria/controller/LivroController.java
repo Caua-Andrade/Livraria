@@ -1,4 +1,4 @@
-package com.caua.livraria;
+package com.caua.livraria.controller;
 
 import com.caua.livraria.entity.Livro;
 import com.caua.livraria.service.LivroService;
