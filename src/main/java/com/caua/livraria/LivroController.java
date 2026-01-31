@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/livros")
 public class LivroController {
@@ -29,4 +31,17 @@ public class LivroController {
     public ResponseEntity<Livro> getId(@PathVariable Long id) {
         return ResponseEntity.ok().body(service.getId(id));
     }
+
+    @GetMapping
+    public ResponseEntity<List<Livro>> getAll() {
+        return ResponseEntity.ok().body(service.getAll());
+    }
+
+    // Atualiza todos os valores
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Livro> update(@PathVariable Long id, @RequestBody Livro obj) {
+        obj.setId(id);
+        return ResponseEntity.ok().body(service.update(obj));
+    }
+
 }
