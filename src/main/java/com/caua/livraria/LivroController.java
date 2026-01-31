@@ -22,6 +22,11 @@ public class LivroController {
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         service.delete(id);
-        return ResponseEntity.noContent().build(); //22:19
+        return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Livro> getId(@PathVariable Long id) {
+        return ResponseEntity.ok().body(service.getId(id));
     }
 }
