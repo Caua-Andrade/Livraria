@@ -2,6 +2,7 @@ package com.caua.livraria.service;
 
 import com.caua.livraria.entity.Livro;
 import com.caua.livraria.repository.LivroRepository;
+import com.caua.livraria.service.exception.EntityNotFound;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +25,9 @@ public class LivroService {
 
     public Livro getId(Long id) {
         Optional<Livro> obj = repository.findById(id);
+        if (obj.isEmpty()) {
+            throw new EntityNotFound("Livro de ID: " + id + " não encontrado!");
+        }
         return obj.get();
     }
 
@@ -33,6 +37,9 @@ public class LivroService {
 
     public Livro update(Livro obj) {
         Optional<Livro> newObj = repository.findById(obj.getId());
+        if (newObj.isEmpty()) {
+            throw new EntityNotFound("Livro de ID: " + obj.getId() + " não encontrado!");
+        }
         updateLivro(newObj, obj);
         return repository.save(newObj.get());
     }
