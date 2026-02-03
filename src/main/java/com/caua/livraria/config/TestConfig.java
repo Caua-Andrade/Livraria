@@ -8,6 +8,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
+import java.util.Arrays;
+
 @Configuration
 @Profile("test")
 public class TestConfig implements CommandLineRunner {
@@ -20,6 +22,9 @@ public class TestConfig implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        Autor a1 = new Autor(null, "Carlos")
+        Autor a1 = new Autor(null, "Carlos");
+        Autor a2 = new Autor(null, "Caua");
+
+        autorRepository.saveAll(Arrays.asList(a1, a2));
     }
 }
