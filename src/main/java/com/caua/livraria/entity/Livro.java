@@ -17,5 +17,5 @@ public class Livro implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // cria os ids em ordem (1, 2, 3...)
     private Long id;
     private String nome;
-    //private Autor autor;
+    private Autor autor;
 }
