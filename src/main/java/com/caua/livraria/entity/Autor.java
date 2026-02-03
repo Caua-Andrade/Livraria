@@ -23,6 +23,8 @@ public class Autor implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
+
+    @OneToMany(mappedBy = "autor")
     private List<Livro> livros = new ArrayList<>();
 
     public Autor(String nome, Long id) {
